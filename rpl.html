@@ -1,0 +1,224 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PPLG - SMK DIGITAL</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"/>
+    
+    <style>
+        body {
+            padding-top: 70px;
+        }
+        .hero {
+            background-image: url("rpl2.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 400px;
+            width: 100%;
+            position: relative;
+        }
+        .overlay {
+            background-color: rgba(0, 0, 50, 0.75);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        @media (max-width: 576px) {
+            .hero {
+                height: 350px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+                <img src="logosmk.jpg" alt="" class="rounded-circle me-2" width="50" height="50">
+                SMKN 1 TENGARAN
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="tugas2.html#home">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tugas2.html#visi">Visi Misi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tugas2.html#data">Data Siswa</a></li>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle btn btn-dark text-white px-3 ms-lg-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Jurusan</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="rpl.html">PPLG</a></li>
+                            <li><a class="dropdown-item" href="tkj.html">TJKT</a></li>
+                            <li><a class="dropdown-item" href="kuliner.html">Kuliner</a></li>
+                            <li><a class="dropdown-item" href="busana.html">Busana</a></li>
+                            <li><a class="dropdown-item" href="otomotif.html">Otomotif</a></li> <hr>
+                             <li><a class="dropdown-item" href="index5.html">Lihat Semua</a></li>
+                        </ul>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero" id="home">
+        <div class="overlay text-center">
+            <div class="container text-white">
+                <h1 class="display-5 fw-bold">PENGEMBANGAN PERANGKAT LUNAK DAN GIM
+                <p class="lead text-light mt-4">Jurusan yang membekali peserta didik dengan pengetahun, keterampilan, dan sikap unggul agar siap menjadi tenaga kompoten di bidang rekayasa perangkat lunak.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container my-5">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <div class="card border-0 shadow-sm p-4 h-100">
+            <h2 class="fw-bold mb-3">Membangun Masa Depan Melalui Kode</h2>
+            <p class="text-secondary">Rekayasa Perangkat Lunak (RPL) / PPLG merupakan program keahlian yang mempelajari proses pembuatan perangkat lunak secara lengkap, mulai dari analisis kebutuhan pengguna, perencanaan sistem, pemrograman, pengujian, hingga pemeliharaan aplikasi setelah digunakan.Program ini bertujuan membekali siswa dengan pengetahuan, keterampilan, dan sikap profesional agar mampu bersaing di dunia indudtri teknologi.</p>
+            
+            <div class="row mt-4">
+              <div class="col-md-6 mb-3">
+                <div class="d-flex align-items-start">
+                  <div class="bg-primary bg-opacity-10 p-3 rounded-3 me-3 text-primary"> <i class="bi-code fs-4"></i></div>
+                  <div>
+                    <h5 class="fw-bold mb-1">Web Dev</h5>
+                    <p class="small text-muted">Menguasai Frontend (React) & Banckend (NodeJS/PHP).</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <div class="d-flex align-items-start">
+                <div class="bg-success bg-opacity-10 p-3 rounded-3 me-3 text-success">
+                  <i class="bi-controller
+                  fs-4"></i>
+                </div>
+                <div>
+                  <h5 class="fw-bold mb-1">Game Dev</h5>
+                  <p class="small text-muted">Pembuatan aset 2D/3D dan mekanik gim menggunakan Unity</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="my-4">
+          <h5 class="fw-bold mb-3">Fasilitas Unggulan</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center px-0">Laboratorium Komputer
+            <span class="badge bg-primary rounded-pill">2 Lab</span>
+            </li>
+               <li class="list-group-item d-flex justify-content-between align-items-center px-0">Akses High Speed Internet
+            <span class="badge bg-primary rounded-pill">Full WIFI</span>
+            </li>
+             <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+               Sertifikasi Industri (Oracle/Microsoft)
+            <span class="badge bg-primary rounded-pill">Voucher Tersedia</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card border-0 shadow-sm mb-4 overflow-hidden">
+          <div class="bg-dark text-white p-3 text-center">
+            <h6 class="mb-0 fw-bold">Status Pendaftaran</h6>
+          </div>
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-2">
+              <small class="fw-bold">Kuota Terisi</small>
+              <small class="fw-bold">90%</small>
+            </div>
+            <div class="progress-mb-4" style="height: 10px;">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 90%"></div>
+               <div class="progress mb-2"><div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 90%"> 90% </div></div>
+                </div>
+            <a href="#" class="btn btn-primary w-100 fw-bold py-2 mv-2 mt-4 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">DAFTAR SEKARANG</a>
+           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h1 class="modal-title fs-5 bg-primary text-white" id="exampleModalLabel"><i class="bi bi-person-fill-add" style="margin-right: 10px;"></i>Tambah Siswa Baru</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+           <div class="mb-3">
+            <label for="disabledTextInput" class="form-label fw-bold">Nama Lengkap</label>
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="Masukkan Nama Anda...">
+            </div>
+            <div class="mb-3">
+            <label for="disabledTextInput" class="form-label fw-bold">NISN</label>
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="Masukkan NISN Anda...">
+            </div>
+             <div class="mb-3">
+            <label for="disabledTextInput" class="form-label fw-bold">Tempat Tanggal Lahir</label>
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="Contoh : Semarang, 8 Agustus 2009">
+            </div>
+            <div class="mb-3">
+            <label for="disabledSelect" class="form-label fw-bold">Jenis Jalur Pendaftaran</label>
+            <select id="disabledSelect" class="form-select" placeholder="Pilih Jalur...">
+                <option>Pilih Jalur...</option>
+                <option>Prestasi</option>
+                <option>Domisili</option>
+                <option>Afirmasi</option>
+                <option>Mutasi</option>
+            </select>
+            </div>
+            <div class="mb-3">
+            <label for="formFile" class="form-label fw-bold">Foto Siswa</label>
+            <input class="form-control" type="file" id="formFile">
+            <div id="passwordHelpBlock" class="form-text">
+            Format: JPG, PNG (Maks 5MB)
+            </div>
+            </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary" onclick="alert('Pendaftaran Sukses!🎉 Jangan lupa daftar ulang ke sekolah ya!')">Daftar</button>
+            </div>
+            </div>
+        </div>
+        </div>
+                  <button onclick="location.href='index5.html'" class="btn btn-light w-100 text-secondary small"> <i class="bi bi-arrow-left me-2"></i>Kembali</button>
+          </div>
+        </div>
+        <div class="card border-0 shadow-sm"><img src="https://images.pexels.com/photos/34804015/pexels-photo-34804015.jpeg" class="card-img-top" alt="jurusan pplg">
+        
+        <div class="card-body">
+          <p class="fst-italic text-secondary small">"Belajar di PPLG SMK Digital membuka saya tentang dunia startup teknologi."</p>
+            <h6 class="fw-bold mb-0">- Ahmad, Alumni 2024</h6>
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+      <div class="container">
+        <small>&copy; 2026 SMKN 1 TENGARAN. Seluruh Hak Cipta Dilindungi.</small>
+      </div>
+    </footer>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

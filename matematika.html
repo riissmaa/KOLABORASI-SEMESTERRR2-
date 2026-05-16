@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recound Text</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #a93226;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Nunito', sans-serif;
+      padding: 30px 0;
+    }
+
+    .poster {
+      width: 560px;
+      background: #c0392b;
+      background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(0,0,0,0.08) 28px, rgba(0,0,0,0.08) 29px),
+        repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(0,0,0,0.08) 28px, rgba(0,0,0,0.08) 29px);
+      padding: 20px;
+      border-radius: 6px;
+    }
+
+    /* TOP SECTION */
+    .top-section {
+      background: #f5e6c8;
+      border: 3.5px solid #1a1a1a;
+      border-radius: 14px;
+      padding: 30px 30px 50px;
+      position: relative;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      margin-bottom: 18px;
+    }
+
+    .title {
+      font-family: 'Fredoka One', cursive;
+      font-size: 58px;
+      font-weight: 900;
+      color: #1a1a1a;
+      text-align: center;
+      letter-spacing: 2px;
+      margin-top: 30px;
+    }
+
+    /* Book & decoration positions */
+    .books-tl {
+      position: absolute;
+      top: -14px;
+      left: -12px;
+      width: 120px;
+      height: 110px;
+    }
+
+    .book-tc {
+      position: absolute;
+      top: -34px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 90px;
+    }
+
+    .book-tr {
+      position: absolute;
+      top: -14px;
+      right: -8px;
+      width: 110px;
+      height: 95px;
+    }
+
+    .speech-ml {
+      position: absolute;
+      bottom: -40px;
+      left: -18px;
+      width: 100px;
+      height: 90px;
+      z-index: 10;
+    }
+
+    .papers-mc {
+      position: absolute;
+      bottom: -48px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 95px;
+      z-index: 10;
+    }
+
+    .books-mr {
+      position: absolute;
+      bottom: -35px;
+      right: -18px;
+      width: 105px;
+      height: 100px;
+      z-index: 10;
+    }
+
+    /* BOTTOM SECTION */
+    .bottom-section {
+      background: #f5e6c8;
+      border: 3.5px solid #1a1a1a;
+      border-radius: 14px;
+      padding: 32px 30px 30px;
+      margin-top: 48px;
+    }
+
+    .text-content p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #1a1a1a;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .text-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ===== ANIMATIONS ===== */
+
+    /* Poster entrance */
+    @keyframes posterEntrance {
+      from { opacity: 0; transform: scale(0.85) translateY(40px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .poster {
+      animation: posterEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    /* Title bounce in */
+    @keyframes titleBounce {
+      0%   { opacity: 0; transform: scale(0.5) rotate(-4deg); }
+      70%  { transform: scale(1.08) rotate(1deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+    .title {
+      animation: titleBounce 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+    }
+
+    /* Title shimmer on hover */
+    .title:hover {
+      color: #c0392b;
+      text-shadow: 3px 3px 0px rgba(0,0,0,0.15);
+      transition: color 0.3s, text-shadow 0.3s;
+      cursor: default;
+    }
+
+    /* Float up-down loop */
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-8px); }
+    }
+    @keyframes floatYCenter {
+      0%, 100% { transform: translateX(-50%) translateY(0px); }
+      50%       { transform: translateX(-50%) translateY(-8px); }
+    }
+
+    /* Swing left-right */
+    @keyframes swingLeft {
+      0%, 100% { transform: rotate(0deg); transform-origin: bottom center; }
+      25%       { transform: rotate(-5deg); transform-origin: bottom center; }
+      75%       { transform: rotate(4deg); transform-origin: bottom center; }
+    }
+    @keyframes swingRight {
+      0%, 100% { transform: rotate(0deg); transform-origin: bottom center; }
+      25%       { transform: rotate(5deg); transform-origin: bottom center; }
+      75%       { transform: rotate(-4deg); transform-origin: bottom center; }
+    }
+
+    /* Bounce pop */
+    @keyframes bouncePop {
+      0%, 100% { transform: translateY(0) scale(1); }
+      40%       { transform: translateY(-10px) scale(1.05); }
+      60%       { transform: translateY(-6px) scale(1.02); }
+    }
+    @keyframes bouncePopCenter {
+      0%, 100% { transform: translateX(-50%) translateY(0) scale(1); }
+      40%       { transform: translateX(-50%) translateY(-10px) scale(1.05); }
+      60%       { transform: translateX(-50%) translateY(-6px) scale(1.02); }
+    }
+
+    /* Slide in from sides */
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-60px) rotate(-10deg); }
+      to   { opacity: 1; transform: translateX(0) rotate(0deg); }
+    }
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(60px) rotate(10deg); }
+      to   { opacity: 1; transform: translateX(0) rotate(0deg); }
+    }
+    @keyframes slideInTop {
+      from { opacity: 0; transform: translateX(-50%) translateY(-50px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+    @keyframes slideInBottomLeft {
+      from { opacity: 0; transform: translateX(-40px) translateY(40px); }
+      to   { opacity: 1; transform: translateX(0) translateY(0); }
+    }
+    @keyframes slideInBottomCenter {
+      from { opacity: 0; transform: translateX(-50%) translateY(40px); }
+      to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+    @keyframes slideInBottomRight {
+      from { opacity: 0; transform: translateX(40px) translateY(40px); }
+      to   { opacity: 1; transform: translateX(0) translateY(0); }
+    }
+
+    /* Fade in up (text) */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Pulse for A+ */
+    @keyframes pulse {
+      0%, 100% { transform: translateX(-50%) scale(1); }
+      50%       { transform: translateX(-50%) scale(1.06); }
+    }
+
+    /* Apply entrance animations */
+    .books-tl {
+      animation: slideInLeft 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both,
+                 swingLeft 4s ease-in-out 1s infinite;
+    }
+    .book-tc {
+      animation: slideInTop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both,
+                 floatYCenter 3.5s ease-in-out 1.2s infinite;
+    }
+    .book-tr {
+      animation: slideInRight 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both,
+                 swingRight 4.2s ease-in-out 1s infinite;
+    }
+    .speech-ml {
+      animation: slideInBottomLeft 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both,
+                 bouncePop 2.8s ease-in-out 1.5s infinite;
+    }
+    .papers-mc {
+      animation: slideInBottomCenter 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s both,
+                 pulse 3s ease-in-out 1.5s infinite;
+    }
+    .books-mr {
+      animation: slideInBottomRight 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both,
+                 floatY 3.2s ease-in-out 1.3s infinite;
+    }
+
+    /* Top section fade in */
+    .top-section {
+      animation: fadeInUp 0.7s ease 0.1s both;
+    }
+
+    /* Bottom section + paragraphs stagger */
+    .bottom-section {
+      animation: fadeInUp 0.7s ease 0.9s both;
+    }
+    .text-content p:nth-child(1) { animation: fadeInUp 0.6s ease 1.1s both; }
+    .text-content p:nth-child(2) { animation: fadeInUp 0.6s ease 1.25s both; }
+    .text-content p:nth-child(3) { animation: fadeInUp 0.6s ease 1.4s both; }
+
+    /* Hover effects on decorations */
+    .books-tl:hover, .book-tc:hover, .book-tr:hover,
+    .speech-ml:hover, .papers-mc:hover, .books-mr:hover {
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.35));
+      cursor: pointer;
+      animation-play-state: paused;
+      transition: filter 0.3s;
+    }
+
+    /* Background shimmer animation */
+    @keyframes bgShimmer {
+      0%   { background-position: 0 0, 0 0; }
+      100% { background-position: 28px 28px, 28px 28px; }
+    }
+    .poster {
+      animation: posterEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both,
+                 bgShimmer 2s linear infinite;
+    }
+  </style>
+</head>
+<body>
+
+<div class="poster">
+
+  <!-- TOP SECTION -->
+  <div class="top-section">
+
+    <!-- Top-left stacked books -->
+    <svg class="books-tl" viewBox="0 0 110 100" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="30" width="60" height="40" rx="3" fill="#f1c40f" stroke="#1a1a1a" stroke-width="2.5" transform="rotate(-15 40 50)"/>
+      <rect x="15" y="25" width="62" height="42" rx="3" fill="#5b8dd9" stroke="#1a1a1a" stroke-width="2.5" transform="rotate(-8 46 46)"/>
+      <rect x="18" y="28" width="64" height="44" rx="3" fill="#e74c3c" stroke="#1a1a1a" stroke-width="2.5" transform="rotate(-2 50 50)"/>
+      <line x1="22" y1="27" x2="21" y2="72" stroke="#1a1a1a" stroke-width="2" transform="rotate(-2 50 50)"/>
+      <line x1="35" y1="30" x2="80" y2="31" stroke="#fff" stroke-width="1.5" transform="rotate(-2 50 50)" opacity="0.6"/>
+      <line x1="35" y1="38" x2="80" y2="39" stroke="#fff" stroke-width="1.5" transform="rotate(-2 50 50)" opacity="0.6"/>
+      <line x1="35" y1="46" x2="80" y2="47" stroke="#fff" stroke-width="1.5" transform="rotate(-2 50 50)" opacity="0.6"/>
+      <rect x="42" y="35" width="22" height="16" rx="2" fill="#f1c40f" stroke="#1a1a1a" stroke-width="1.5" transform="rotate(-2 50 50)"/>
+    </svg>
+
+    <!-- Top-center open book -->
+    <svg class="book-tc" viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50,10 Q25,8 5,15 L5,70 Q25,63 50,65 Z" fill="#fff" stroke="#1a1a1a" stroke-width="2.5"/>
+      <path d="M50,10 Q75,8 95,15 L95,70 Q75,63 50,65 Z" fill="#fff" stroke="#1a1a1a" stroke-width="2.5"/>
+      <line x1="50" y1="10" x2="50" y2="65" stroke="#1a1a1a" stroke-width="2.5"/>
+      <line x1="15" y1="28" x2="45" y2="26" stroke="#888" stroke-width="1.5"/>
+      <line x1="15" y1="36" x2="45" y2="34" stroke="#888" stroke-width="1.5"/>
+      <line x1="15" y1="44" x2="45" y2="42" stroke="#888" stroke-width="1.5"/>
+      <line x1="15" y1="52" x2="45" y2="50" stroke="#888" stroke-width="1.5"/>
+      <line x1="15" y1="60" x2="45" y2="58" stroke="#888" stroke-width="1.5"/>
+      <line x1="55" y1="26" x2="85" y2="28" stroke="#888" stroke-width="1.5"/>
+      <line x1="55" y1="34" x2="85" y2="36" stroke="#888" stroke-width="1.5"/>
+      <line x1="55" y1="42" x2="85" y2="44" stroke="#888" stroke-width="1.5"/>
+      <line x1="55" y1="50" x2="85" y2="52" stroke="#888" stroke-width="1.5"/>
+      <line x1="55" y1="58" x2="85" y2="60" stroke="#888" stroke-width="1.5"/>
+      <path d="M5,70 Q25,63 50,65 Q75,63 95,70 L95,75 Q75,68 50,70 Q25,68 5,75 Z" fill="#5b8dd9" stroke="#1a1a1a" stroke-width="2"/>
+    </svg>
+
+    <!-- Top-right open book with pencil -->
+    <svg class="book-tr" viewBox="0 0 100 85" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50,12 Q25,10 5,18 L5,72 Q25,65 50,67 Z" fill="#fff" stroke="#1a1a1a" stroke-width="2.5"/>
+      <path d="M50,12 Q75,10 95,18 L95,72 Q75,65 50,67 Z" fill="#fff" stroke="#1a1a1a" stroke-width="2.5"/>
+      <line x1="50" y1="12" x2="50" y2="67" stroke="#1a1a1a" stroke-width="2.5"/>
+      <line x1="15" y1="28" x2="45" y2="26" stroke="#888" stroke-width="1.5"/>
+      <line x1="15" y1="36" x2="45" y2="34" stroke="#888" stroke-width="1.5"/>
+      <line x1="15" y1="44" x2="45" y2="42" stroke="#888" stroke-width="1.5"/>
+      <line x1="15" y1="52" x2="45" y2="50" stroke="#888" stroke-width="1.5"/>
+      <line x1="15" y1="60" x2="45" y2="58" stroke="#888" stroke-width="1.5"/>
+      <line x1="55" y1="26" x2="85" y2="28" stroke="#888" stroke-width="1.5"/>
+      <line x1="55" y1="34" x2="85" y2="36" stroke="#888" stroke-width="1.5"/>
+      <line x1="55" y1="42" x2="85" y2="44" stroke="#888" stroke-width="1.5"/>
+      <line x1="55" y1="50" x2="85" y2="52" stroke="#888" stroke-width="1.5"/>
+      <path d="M5,72 Q25,65 50,67 Q75,65 95,72 L95,77 Q75,70 50,72 Q25,70 5,77 Z" fill="#e74c3c" stroke="#1a1a1a" stroke-width="2"/>
+      <!-- Pencil -->
+      <rect x="72" y="0" width="8" height="40" rx="2" fill="#f1c40f" stroke="#1a1a1a" stroke-width="1.5" transform="rotate(25 76 20)"/>
+      <polygon points="76,40 72,50 80,50" fill="#f5cba7" stroke="#1a1a1a" stroke-width="1.5" transform="rotate(25 76 20)"/>
+      <polygon points="73,47 76,52 79,47" fill="#e74c3c" transform="rotate(25 76 20)"/>
+      <rect x="72" y="0" width="8" height="5" rx="1" fill="#bbb" stroke="#1a1a1a" stroke-width="1.5" transform="rotate(25 76 20)"/>
+    </svg>
+
+    <!-- TITLE -->
+    <div class="title">RECOUND TEXT</div>
+
+    <!-- Bottom-left speech bubbles -->
+    <svg class="speech-ml" viewBox="0 0 90 80" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10,5 Q5,5 5,12 L5,45 Q5,52 12,52 L20,52 L18,62 L32,52 L65,52 Q72,52 72,45 L72,12 Q72,5 65,5 Z" fill="#fff" stroke="#1a1a1a" stroke-width="2.5"/>
+      <path d="M18,15 Q12,15 12,22 L12,55 Q12,62 19,62 L22,62 L20,72 L36,62 L72,62 Q79,62 79,55 L79,22 Q79,15 72,15 Z" fill="#f1c40f" stroke="#1a1a1a" stroke-width="2.5"/>
+      <circle cx="35" cy="38" r="4" fill="#1a1a1a"/>
+      <circle cx="48" cy="38" r="4" fill="#1a1a1a"/>
+    </svg>
+
+    <!-- Bottom-center A+ papers -->
+    <svg class="papers-mc" viewBox="0 0 90 85" xmlns="http://www.w3.org/2000/svg">
+      <rect x="15" y="5" width="60" height="75" rx="3" fill="#eee" stroke="#1a1a1a" stroke-width="2" transform="rotate(-8 45 42)"/>
+      <rect x="15" y="5" width="60" height="75" rx="3" fill="#f5f5f5" stroke="#1a1a1a" stroke-width="2" transform="rotate(-3 45 42)"/>
+      <rect x="15" y="5" width="60" height="75" rx="3" fill="#fff" stroke="#1a1a1a" stroke-width="2.5"/>
+      <text x="45" y="42" font-family="Fredoka One, cursive" font-size="28" font-weight="900" fill="#e74c3c" text-anchor="middle">A+</text>
+      <circle cx="45" cy="35" r="22" fill="none" stroke="#e74c3c" stroke-width="2.5"/>
+      <line x1="25" y1="60" x2="65" y2="60" stroke="#aaa" stroke-width="1.5"/>
+      <line x1="25" y1="68" x2="65" y2="68" stroke="#aaa" stroke-width="1.5"/>
+      <rect x="8" y="70" width="7" height="30" rx="2" fill="#5b8dd9" stroke="#1a1a1a" stroke-width="1.5" transform="rotate(-30 12 85)"/>
+      <polygon points="12,100 8,108 16,108" fill="#f5cba7" stroke="#1a1a1a" stroke-width="1.2" transform="rotate(-30 12 85)"/>
+    </svg>
+
+    <!-- Bottom-right stacked books horizontal -->
+    <svg class="books-mr" viewBox="0 0 95 90" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="65" width="75" height="18" rx="3" fill="#e74c3c" stroke="#1a1a1a" stroke-width="2.5"/>
+      <rect x="10" y="65" width="8" height="18" rx="2" fill="#c0392b" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="25" y1="70" x2="80" y2="70" stroke="#fff" stroke-width="1.5" opacity="0.5"/>
+      <line x1="25" y1="76" x2="80" y2="76" stroke="#fff" stroke-width="1.5" opacity="0.5"/>
+      <rect x="10" y="44" width="75" height="18" rx="3" fill="#1abc9c" stroke="#1a1a1a" stroke-width="2.5"/>
+      <rect x="10" y="44" width="8" height="18" rx="2" fill="#16a085" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="25" y1="49" x2="80" y2="49" stroke="#fff" stroke-width="1.5" opacity="0.5"/>
+      <line x1="25" y1="55" x2="80" y2="55" stroke="#fff" stroke-width="1.5" opacity="0.5"/>
+      <rect x="10" y="23" width="75" height="18" rx="3" fill="#5b8dd9" stroke="#1a1a1a" stroke-width="2.5"/>
+      <rect x="10" y="23" width="8" height="18" rx="2" fill="#2980b9" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="25" y1="28" x2="80" y2="28" stroke="#fff" stroke-width="1.5" opacity="0.5"/>
+      <line x1="25" y1="34" x2="80" y2="34" stroke="#fff" stroke-width="1.5" opacity="0.5"/>
+      <rect x="10" y="2" width="75" height="18" rx="3" fill="#f1c40f" stroke="#1a1a1a" stroke-width="2.5"/>
+      <rect x="10" y="2" width="8" height="18" rx="2" fill="#d4ac0d" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="25" y1="7" x2="80" y2="7" stroke="#fff" stroke-width="1.5" opacity="0.5"/>
+      <line x1="25" y1="13" x2="80" y2="13" stroke="#fff" stroke-width="1.5" opacity="0.5"/>
+    </svg>
+
+  </div>
+
+  <!-- BOTTOM SECTION -->
+  <div class="bottom-section">
+    <div class="text-content">
+      <p>Building a digital project from scratch has been an incredible journey. It all started in Figma, where I had to translate ideas into visual forms, organizing layouts, and choosing the right color palettes to ensure the design was not only aesthetic but also functional. The transition from design to coding was the real challenge; turning visual elements into lines of code using HTML and CSS required extra precision to achieve a pixel-perfect result.</p>
+      <p>Of course, the process wasn't always smooth. There were moments when the layout broke or features didn't function as intended. However, that's where the real learning happened—debugging, fixing the code, and ensuring everything ran perfectly. The climax was the presentation session, where I had to explain the entire process and the logic behind my work.</p>
+      <p>A huge thank you to Bu Uli and Pak Bagus for guiding me throughout this process. Thanks to their mentorship and feedback, I didn't just successfully complete this project, but I also gained a deeper understanding of what it means to be a resilient web developer.</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

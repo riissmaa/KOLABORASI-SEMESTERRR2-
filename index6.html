@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sampah Jadi Berkah</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --green: #4a7c59;
+      --green-light: #6aab7a;
+      --green-dark: #2e5c3a;
+      --gray: #b0b0b0;
+      --gray-light: #d9d9d9;
+      --gray-bg: #c8c8c8;
+      --white: #fff;
+      --text-dark: #222;
+      --text-mid: #444;
+      --section-bg: #cfcfcf;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-dark);
+      background: #e5e5e5;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(6px);
+    }
+    nav .logo {
+      width: 38px; height: 38px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    nav .logo svg { width: 22px; fill: white; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color .2s;
+    }
+    nav ul li a:hover { color: var(--green-light); }
+
+    /* ── HERO ── */
+    #beranda {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=1200&q=80') center/cover no-repeat;
+      filter: brightness(0.55);
+    }
+    .hero-content {
+      position: relative;
+      padding: 140px 50px 80px;
+      max-width: 560px;
+    }
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.4rem;
+      line-height: 1.08;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 16px rgba(0,0,0,.4);
+    }
+    .hero-sub {
+      color: #ddd;
+      font-size: 0.82rem;
+      margin: 14px 0 28px;
+      font-style: italic;
+    }
+    .btn-hero {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      padding: 11px 28px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+    .btn-hero:hover { background: var(--green-dark); transform: translateY(-2px); }
+
+    /* ── SECTION WRAPPER ── */
+    section { width: 100%; }
+
+    /* ── TENTANG ── */
+    #tentang {
+      background: var(--section-bg);
+      text-align: center;
+      padding: 60px 40px 50px;
+    }
+    #tentang h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      color: var(--text-dark);
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+    #tentang p {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: var(--text-mid);
+    }
+
+    /* ── PRODUK ── */
+    #service {
+      background: var(--section-bg);
+      padding: 10px 40px 60px;
+    }
+    .produk-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .produk-title span {
+      display: inline-block;
+      background: var(--gray);
+      color: var(--text-dark);
+      padding: 9px 28px;
+      border-radius: 22px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+    }
+    .produk-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .produk-card {
+      background: var(--gray-light);
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .produk-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,.14); }
+    .produk-card img {
+      width: 100%; height: 140px;
+      object-fit: cover;
+    }
+    .produk-card .btn-detail {
+      display: block;
+      background: var(--gray);
+      color: #fff;
+      padding: 8px 0;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .produk-card .btn-detail:hover { background: var(--green); }
+
+    /* ── COLLABORATION ── */
+    #kolaborasi {
+      background: #bdbdbd;
+      padding: 55px 40px;
+      text-align: center;
+    }
+    #kolaborasi h2 {
+      font-weight: 800;
+      font-size: 1.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+      color: var(--text-dark);
+    }
+    .kolab-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .kolab-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .kolab-circle {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: var(--gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-align: center;
+      color: #fff;
+      line-height: 1.3;
+      box-shadow: 0 3px 12px rgba(0,0,0,.15);
+      transition: background .2s;
+    }
+    .kolab-card:hover .kolab-circle { background: var(--green); }
+    .btn-selan {
+      background: var(--gray-light);
+      color: var(--text-dark);
+      border: none;
+      padding: 7px 22px;
+      border-radius: 16px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-selan:hover { background: var(--green); color: #fff; }
+
+    /* ── CONTACT ── */
+    #kontak {
+      background: var(--section-bg);
+      padding: 55px 40px;
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .contact-info {
+      flex: 1 1 220px;
+      max-width: 300px;
+    }
+    .contact-info h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--text-dark);
+    }
+    .contact-info p {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      margin-bottom: 18px;
+    }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 0.82rem;
+      color: var(--text-mid);
+    }
+    .contact-row svg { width: 18px; flex-shrink: 0; fill: var(--green-dark); }
+
+    .contact-form {
+      flex: 1 1 260px;
+      max-width: 360px;
+      background: var(--gray-light);
+      border-radius: 12px;
+      padding: 28px 26px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    }
+    .contact-form h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-dark);
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 9px 14px;
+      border: none;
+      border-radius: 8px;
+      background: var(--gray);
+      color: #fff;
+      font-size: 0.82rem;
+      margin-bottom: 12px;
+      font-family: inherit;
+      outline: none;
+      transition: background .2s;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: #eee; }
+    .contact-form input:focus,
+    .contact-form textarea:focus { background: var(--green); }
+    .contact-form textarea { height: 90px; resize: vertical; }
+    .btn-send {
+      width: 100%;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-send:hover { background: var(--green-dark); }
+
+    /* ── TEAM ── */
+    #team {
+      background: var(--section-bg);
+      padding: 55px 40px;
+      text-align: center;
+      border-top: 3px solid var(--gray);
+    }
+    #team h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-style: italic;
+      margin-bottom: 34px;
+      color: var(--text-dark);
+    }
+    .team-grid {
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+      flex-wrap: wrap;
+    }
+    .team-card {
+      background: var(--gray-light);
+      border-radius: 12px;
+      padding: 22px 20px 16px;
+      width: 150px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      transition: transform .25s;
+    }
+    .team-card:hover { transform: translateY(-5px); }
+    .team-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      overflow: hidden;
+      background: #aed9b2;
+    }
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .team-card p {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.3;
+    }
+    .team-card .team-role {
+      font-size: 0.7rem;
+      color: var(--text-mid);
+      font-weight: 400;
+      margin-top: 4px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #444;
+      color: #eee;
+      padding: 40px 50px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 36px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .footer-brand {
+      flex: 1 1 180px;
+      max-width: 220px;
+    }
+    .footer-brand .f-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .footer-brand .f-logo .circle {
+      width: 40px; height: 40px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .footer-brand .f-logo .circle svg { width: 22px; fill: #fff; }
+    .footer-brand .brand-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .footer-brand p {
+      font-size: 0.76rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    .footer-nav { flex: 1 1 120px; }
+    .footer-nav h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .footer-nav ul { list-style: none; }
+    .footer-nav ul li { margin-bottom: 7px; }
+    .footer-nav ul li a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 0.78rem;
+      transition: color .2s;
+    }
+    .footer-nav ul li a:hover { color: var(--green-light); }
+
+    .footer-social { flex: 1 1 140px; }
+    .footer-social h4 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .social-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+      color: #ccc;
+      font-size: 0.78rem;
+      text-decoration: none;
+    }
+    .social-row:hover { color: var(--green-light); }
+    .social-row .ig-icon {
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .social-row .ig-icon svg { width: 16px; fill: #fff; }
+
+    .footer-bottom {
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.72rem;
+      color: #999;
+      border-top: 1px solid #555;
+      padding-top: 16px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .produk-grid { grid-template-columns: repeat(2, 1fr); }
+      nav ul { gap: 14px; }
+      nav { padding: 12px 20px; }
+      .hero-content { padding: 120px 24px 60px; }
+      .hero-content h1 { font-size: 2.3rem; }
+      footer { padding: 30px 24px 20px; }
+    }
+    @media (max-width: 460px) {
+      .produk-grid { grid-template-columns: 1fr; }
+      nav ul { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+    </svg>
+  </div>
+  <ul>
+    <li><a href="#beranda">Beranda</a></li>
+    <li><a href="#tentang">Tentang</a></li>
+    <li><a href="#service">Service</a></li>
+    <li><a href="#kontak">Kontak</a></li>
+    <li><a href="#team">Team</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="beranda">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>Sampah Jadi Berkah</h1>
+    <p class="hero-sub">mari ciptakan produk ramah lingkungan!</p>
+    <a href="#tentang" class="btn-hero">baca selengkapnya!</a>
+  </div>
+</section>
+
+<!-- TENTANG -->
+<section id="tentang">
+  <h2>Understanding Waste As a blessing</h2>
+  <p>
+    Mengubah sampah menjadi berkah adalah konsep memanfaatkan limbah atau material bekas menjadi
+    sesuatu yang bernilai ekonomi, sosial, atau lingkungan. Ini melibatkan proses daur ulang,
+    pengolahan, atau pemanfaatan kembali sampah untuk menciptakan produk baru, energi, atau
+    manfaat lainnya.
+  </p>
+</section>
+
+<!-- PRODUK / SERVICE -->
+<section id="service">
+  <div class="produk-title">
+    <span>Various types of products</span>
+  </div>
+  <div class="produk-grid">
+    <!-- Card 1 -->
+    <div class="produk-card">
+      <img src="tas.jpg" alt="produk daur uulang 1"/>
+      <a href="indexipas3.html" class="btn-detail">Details</a>
+    </div>
+    <!-- Card 2 -->
+    <div class="produk-card">
+      <img src="daurulang.jpg" alt="Produk Daur Ulang 2"/>
+      <a href="indexipas2.html" class="btn-detail">Details</a>
+    </div>
+    <!-- Card 3 -->
+    <div class="produk-card">
+      <img src="asbak.jpg" alt="Produk Daur Ulang 3"/>
+      <a href="indexipas4.html" class="btn-detail">Details</a>
+    </div>
+    <!-- Card 4 -->
+    <div class="produk-card">
+      <img src="rakbuku.jpg" alt="Produk Daur Ulang 4"/>
+      <a href="indexipas1.html" class="btn-detail">Details</a>
+    </div>
+    <!-- Card 5 -->
+    <div class="produk-card">
+      <img src="cermin.jpg" alt="Produk Daur Ulang 5"/>
+      <a href="#" class="btn-detail">Details</a>
+    </div>
+    <!-- Card 6 -->
+    <div class="produk-card">
+      <img src="tempatpensil.jpg" alt="Produk Daur Ulang 6"/>
+      <a href="#" class="btn-detail">Details</a>
+    </div>
+  </div>
+</section>
+
+<!-- COLLABORATION -->
+<section id="kolaborasi">
+  <h2>Collaboration</h2>
+  <div class="kolab-grid">
+    <div class="kolab-card">
+      <div class="kolab-circle">Bahasa<br>Indonesia</div>
+      <button class="btn-selan">Selengkapnya</button>
+    </div>
+    <div class="kolab-card">
+      <div class="kolab-circle">Bahasa<br>Inggris</div>
+      <button class="btn-selan">Selengkapnya</button>
+    </div>
+    <div class="kolab-card">
+      <div class="kolab-circle">Matematika</div>
+      <button class="btn-selan">Selengkapnya</button>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section id="kontak">
+  <div class="contact-info">
+    <h2>Contact Us</h2>
+    <p>Have trouble? Get in touch with us!</p>
+    <div class="contact-row">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.27c1.21.49 2.53.76 3.88.76a1 1 0 011 1V20a1 1 0 01-1 1C10.61 21 3 13.39 3 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.36.27 2.68.76 3.88a1 1 0 01-.64 1.11z"/></svg>
+      (+62) 085-888-3215
+    </div>
+    <div class="contact-row">
+      <svg viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+      sampahberkah_x-satu
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h3>Contact form</h3>
+    <input type="text" placeholder="Nama" />
+    <input type="email" placeholder="Email" />
+    <textarea placeholder="Isi Pesan"></textarea>
+    <button class="btn-send" onclick="alert('Pesan terkirim! Terima kasih.')">Kirim</button>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <h2>The TEAM</h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">
+        <img src="amel.JPG" alt="Dhestin Ismaini"/>
+      </div>
+      <p>Hallo, saya siswi X satu</p>
+      <p class="team-role">Amelda. Isnaini</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <img src="cls.JPG" alt="Calista Barendz"/>
+      </div>
+      <p>Hallo, saya siswi X satu</p>
+      <p class="team-role">Calista Barendz</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">
+        <img src="mol.JPG" alt="Nana Putri A"/>
+      </div>
+      <p>Hallo, saya siswi X satu</p>
+      <p class="team-role">Risma Putri A</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="f-logo">
+      <div class="circle">
+        <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 008 20C19 20 22 3 22 3c-1 2-8 2-8 2s1-2 2-2c-3 0-7 3-7 8 0 2.5 1 4.5 3 6-1-3 0-6 2-7z"/></svg>
+      </div>
+      <span class="brand-name">GREEN<br>LIFE</span>
+    </div>
+    <p>Bersama menciptakan produk ramah lingkungan untuk masa depan yang lebih baik.</p>
+  </div>
+
+  <div class="footer-nav">
+    <h4>Navigator</h4>
+    <ul>
+      <li><a href="#beranda">Beranda</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-social">
+    <h4>Follow Us</h4>
+    <a class="social-row" href="#" target="_blank">
+      <div class="ig-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </div>
+      @amelu444
+    </a>
+    <a class="social-row" href="#" target="_blank">
+      <div class="ig-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </div>
+      @clstabrndz_
+    </a>
+    <a class="social-row" href="#" target="_blank">
+      <div class="ig-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </div>
+      @riissmaa.a
+    </a>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2026 Sampah Jadi Berkah — X Satu &bull; Dibuat dengan ❤️ untuk lingkungan
+  </div>
+</footer>
+
+</body>
+</html>

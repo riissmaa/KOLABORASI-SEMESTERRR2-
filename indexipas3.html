@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Dua Foto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Jarak antar foto */
+            flex-wrap: wrap; /* Supaya otomatis turun ke bawah jika layar HP kekecilan */
+            margin-top: 30px;
+        }
+        .foto-box {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .foto-box img {
+            width: 300px; /* Atur lebar foto di sini */
+            height: auto; /* Tinggi otomatis menyesuaikan proporsi */
+            border-radius: 4px;
+            display: block;
+        }
+        .caption {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gallery">
+        <!-- Foto Pertama -->
+        <div class="foto-box">
+            <img src="13.jpg" alt="Deskripsi Foto 1">
+            <div class="caption">Foto Pertama</div>
+        </div>
+
+        <!-- Foto Kedua -->
+        <div class="foto-box">
+            <img src="13.1.jpg" alt="Deskripsi Foto 2">
+            <div class="caption">Foto Kedua</div>
+        </div>
+    </div>
+
+</body>
+</html>

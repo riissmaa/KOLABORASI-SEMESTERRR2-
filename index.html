@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Risma | Creative Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- WELCOME SCREEN -->
+<div id="welcome-screen">
+  <div class="welcome-inner">
+    <div class="w-rings">
+      <div class="w-ring"></div>
+      <div class="w-ring"></div>
+      <div class="w-ring"></div>
+    </div>
+    <p class="w-hello">Welcome to</p>
+    <h1 class="w-name">RISMA<span>.</span></h1>
+    <p class="w-sub">Creative Developer Portfolio</p>
+    <div class="w-bar-wrap"><div class="w-bar" id="wBar"></div></div>
+    <span class="w-pct" id="wPct">0%</span>
+  </div>
+  <div id="wParticles"></div>
+</div>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursorRing"></div>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <div class="nav-wrap">
+    <a class="brand" href="#home">RISMA</a>
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#home"    class="nlink active">Home</a></li>
+      <li><a href="#about"   class="nlink">About Me</a></li>
+      <li><a href="#skills"  class="nlink">Skills</a></li>
+      <li><a href="#project" class="nlink">Project</a></li>
+      <li><a href="#contact" class="nlink">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="home" class="hero">
+  <div class="hero-bg"></div>
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="hero-box">
+    <!-- foto kiri -->
+    <div class="hero-photo-wrap">
+      <div class="photo-ring pr1"></div>
+      <div class="photo-ring pr2"></div>
+      <div class="hero-img">
+        <img src="ft1.jpg" alt="Risma"/>
+      </div>
+    </div>
+    <!-- teks kanan -->
+    <div class="hero-text">
+      <p class="hi">Hi, I'm</p>
+      <h1 class="hero-name">Risma</h1>
+      <h2 class="hero-role"><span id="typed"></span><span class="tcursor">|</span></h2>
+      <p class="hero-desc">Frontend Developer yang fokus membangun website responsif dan menarik.</p>
+      <div class="hero-cta">
+        <a href="#project" class="btn-main">View My Work</a>
+        <a href="#contact" class="btn-ghost">Contact Me</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-ind">
+    <span>scroll</span>
+    <div class="s-line"><div class="s-dot"></div></div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about" class="about sec-pad">
+  <div class="sec-title reveal">
+    <span class="sec-tag">Get to know me</span>
+    <h2>About <span class="hl">Me</span></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-left reveal">
+      <div class="about-frame">
+        <img src="ft2.jpg" alt="Risma"/>
+        <div class="frame-deco"></div>
+      </div>
+      <div class="about-stats">
+        <div class="stat"><span class="sn">5+</span><span class="sl">Projects</span></div>
+        <div class="stat"><span class="sn">16</span><span class="sl">Years Old</span></div>
+      </div>
+    </div>
+    <div class="about-right reveal">
+      <p class="about-p">Hello everyone! Allow me to introduce myself. My name is <b class="hl">Risma Putri Rejasi</b>, but you can call me <b class="hl">Risma</b>. I am currently in 10th grade at <b class="hl">SMKN 1 Tengaran</b>, I just turned <b class="hl">16</b> and I live in <b class="hl">Klero</b>.</p>
+      <p class="about-p">I'm the type of person who loves exploring many things, from learning to code to trying out different visual editing styles. If you share my interests or just want to share school stories, don't hesitate to say hello! Nice to meet you all 👋</p>
+      <div class="about-info">
+        <div class="ai-row"><span class="ai-ico">🎓</span><div><strong>SMKN 1 Tengaran</strong><span>10th Grade Student</span></div></div>
+        <div class="ai-row"><span class="ai-ico">📍</span><div><strong>Klero, Salatiga</strong><span>Central Java</span></div></div>
+        <div class="ai-row"><span class="ai-ico">💻</span><div><strong>Frontend Developer</strong><span>Web Design Enthusiast</span></div></div>
+      </div>
+      <a href="matematika.html" target="_blank" class="learn-more">Learn More →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SKILLS ═══ -->
+<section id="skills" class="skills sec-pad">
+  <div class="sec-title reveal">
+    <span class="sec-tag">What I know</span>
+    <h2>My <span class="hl">Skills</span></h2>
+  </div>
+  <div class="skills-grid reveal">
+
+    <div class="sk-card">
+      <div class="sk-icon sk-bs">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.375 7.125V16.5h3.891c.56 0 1.048-.082 1.465-.246.416-.165.739-.414.968-.747.23-.332.345-.752.345-1.26 0-.406-.07-.752-.211-1.037a1.71 1.71 0 00-.598-.686 2.47 2.47 0 00-.937-.352v-.082c.467-.117.84-.351 1.118-.703.279-.351.418-.784.418-1.3 0-.484-.107-.894-.322-1.23a2.048 2.048 0 00-.908-.773c-.39-.18-.853-.27-1.388-.27H6.375zm1.845 1.37h1.73c.494 0 .868.105 1.121.316.254.211.381.516.381.914 0 .42-.138.741-.413.961-.275.22-.68.33-1.213.33H8.22V8.495zm0 3.838h1.91c.578 0 1.016.12 1.314.36.298.24.447.592.447 1.055 0 .47-.156.83-.469 1.077-.312.248-.77.372-1.37.372H8.22v-2.864zM3 0a3 3 0 00-3 3v18a3 3 0 003 3h18a3 3 0 003-3V3a3 3 0 00-3-3H3zm0 1.5h18a1.5 1.5 0 011.5 1.5v18a1.5 1.5 0 01-1.5 1.5H3A1.5 1.5 0 011.5 21V3A1.5 1.5 0 013 1.5z"/></svg>
+      </div>
+      <h3>Bootstrap</h3>
+      <div class="sk-bar-row"><div class="sk-bar" data-w="56"><div class="sk-fill"></div></div><span>56%</span></div>
+      <p>Framework CSS responsif untuk UI modern.</p>
+    </div>
+
+    <div class="sk-card">
+      <div class="sk-icon sk-css">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg>
+      </div>
+      <h3>CSS3</h3>
+      <div class="sk-bar-row"><div class="sk-bar" data-w="65"><div class="sk-fill"></div></div><span>65%</span></div>
+      <p>Styling canggih dengan animasi modern.</p>
+    </div>
+
+    <div class="sk-card">
+      <div class="sk-icon sk-gh">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      </div>
+      <h3>GitHub</h3>
+      <div class="sk-bar-row"><div class="sk-bar" data-w="61"><div class="sk-fill"></div></div><span>61%</span></div>
+      <p>Version control dan kolaborasi project.</p>
+    </div>
+
+    <div class="sk-card">
+      <div class="sk-icon sk-js">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>
+      </div>
+      <h3>JavaScript</h3>
+      <div class="sk-bar-row"><div class="sk-bar" data-w="67"><div class="sk-fill"></div></div><span>67%</span></div>
+      <p>Interaktivitas web dan logika frontend.</p>
+    </div>
+
+    <div class="sk-card">
+      <div class="sk-icon sk-html">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>
+      </div>
+      <h3>JS</h3>
+      <div class="sk-bar-row"><div class="sk-bar" data-w="87"><div class="sk-fill"></div></div><span>87%</span></div>
+      <p>Struktur markup modern dan semantik web.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ PROJECT ═══ -->
+<section id="project" class="project sec-pad">
+  <div class="sec-title reveal">
+    <span class="sec-tag">What I've built</span>
+    <h2>My <span class="hl">Work</span></h2>
+  </div>
+
+  <!--
+    LAYOUT PERSIS DESAIN ASLI:
+    Baris 1 → 3 card (Kolaborasi, Eviroment, Tugas 4)
+    Baris 2 → 2 card di TENGAH (Sekolah, Tugas 5)
+    Semua card SAMA UKURAN
+  -->
+  <div class="proj-row1 reveal">
+    <div class="proj-card">
+      <div class="proj-thumb">
+        <img src="1.jpg" alt="Kolaborasi"/>
+        <span class="proj-badge">Web App</span>
+      </div>
+      <div class="proj-body">
+        <h3>Kolaborasi</h3>
+        <p>Platform kolaborasi tim untuk membangun proyek bersama dengan fitur real-time dan manajemen tugas.</p>
+        <a href="index6.html" target="_blank" class="learn-more">Learn More →</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-thumb">
+        <img src="2.jpg" alt="Eviroment"/>
+        <span class="proj-badge">Landing Page</span>
+      </div>
+      <div class="proj-body">
+        <h3>Eviroment</h3>
+        <p>Website kampanye lingkungan hidup interaktif dengan visualisasi data dan edukasi lingkungan.</p>
+        <a href="index2.html" target="_blank" class="learn-more">Learn More →</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-thumb">
+        <img src="3.jpg" alt="Tugas 4"/>
+        <span class="proj-badge">Travel</span>
+      </div>
+      <div class="proj-body">
+        <h3>Tugas 4</h3>
+        <p>Website travel planner — Let's Plan Your Best Vacation, dengan informasi destinasi wisata menarik.</p>
+        <a href="index4.html" target="_blank" class="learn-more">Learn More →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj-row2 reveal">
+    <div class="proj-card">
+      <div class="proj-thumb">
+        <img src="5.jpg" alt="Sekolah"/>
+        <span class="proj-badge">Education</span>
+      </div>
+      <div class="proj-body">
+        <h3>Sekolah</h3>
+        <p>Website profil sekolah SMKN 1 Tengaran dengan informasi lengkap jurusan, kegiatan, dan prestasi.</p>
+        <a href="index5.html" target="_blank" class="learn-more">Learn More →</a>
+      </div>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-thumb">
+        <img src="4.jpg" alt="Tugas 5"/>
+        <span class="proj-badge">Portfolio</span>
+      </div>
+      <div class="proj-body">
+        <h3>Tugas 5</h3>
+        <p>Website portfolio personal dengan desain modern, animasi halus, dan tampilan responsif yang menarik.</p>
+        <a href="index3.html" target="_blank" class="learn-more">Learn More →</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<!--
+  LAYOUT PERSIS DESAIN ASLI:
+  Kiri  → form: Name, Email, Message + tombol Send Message
+  Kanan → Email box, Contact box
+-->
+<section id="contact" class="contact sec-pad">
+  <div class="sec-title reveal">
+    <span class="sec-tag">Say hello</span>
+    <h2>Contact <span class="hl">Me</span></h2>
+    <p class="contact-sub"><span class="hl">Get In touch</span><br>tell me about your make project</p>
+  </div>
+
+  <div class="contact-wrap reveal">
+    <!-- KIRI: Form -->
+    <div class="contact-left">
+      <form id="contactForm">
+        <div class="cf-group">
+          <label>Name</label>
+          <input type="text" placeholder="your name..." required/>
+        </div>
+        <div class="cf-group">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com" required/>
+        </div>
+        <div class="cf-group">
+          <label>Message</label>
+          <textarea rows="4" placeholder="your message..." required></textarea>
+        </div>
+        <button type="submit" class="btn-send">Send Message</button>
+      </form>
+    </div>
+
+    <!-- KANAN: Info boxes -->
+    <div class="contact-right">
+      <div class="cinfo-box">
+        <span class="cinfo-label">Email</span>
+        <a href="mailto:maimaa803@gmail.com" class="cinfo-val">maimaa803@gmail.com</a>
+      </div>
+      <div class="cinfo-box">
+        <span class="cinfo-label">Contact</span>
+        <a href="tel:08882768819" class="cinfo-val">0888 2768 819</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<!--
+  LAYOUT PERSIS DESAIN ASLI:
+  3 kolom: Our Store | Further Link | Get In Touch
+  Heading orange, link putih abu
+-->
+<footer id="footer">
+  <div class="footer-wrap">
+    <div class="footer-col">
+      <h4>Our Store</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Service</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Further Link</h4>
+      <ul>
+        <li><a href="#">Term &amp; Condition</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Learning</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Get In Touch</h4>
+      <ul>
+        <li><span>📍 JL. Salatiga</span></li>
+        <li><a href="tel:08882768819">📱 0888 2768 819</a></li>
+        <li><a href="mailto:maimaa803@gmail.com">✉ maima803@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-copy">
+    <p>© 2026 Portfolio. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="btt" class="btt" title="Back to top">↑</button>
+
+<!-- Toast -->
+<div id="toast" class="toast">✓ Pesan terkirim!</div>
+
+<script src="script.js"></script>
+</body>
+</html>

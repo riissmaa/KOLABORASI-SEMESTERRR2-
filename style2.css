@@ -1,0 +1,316 @@
+            :root {
+            --primary-green;: #2929;
+            --dark-green: #245124;
+            --accent-green: #5cb874;
+            --light-green: #a8d4c0;
+        }
+        
+        html{
+          scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        #mainHeader {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            z-index: 1050;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        #mainHeader.scrolled {
+            top: 0;
+            width: 100%;
+            border-radius: 0;
+        }
+
+        .topbar {
+            background-color: var(--dark-green);
+            color: white;
+            font-size: 13px;
+            padding: 8px 25px;
+            transition: max-height 0.3s, opacity 0.3s;
+            overflow: hidden;
+            max-height: 40px;
+        }
+
+        #mainHeader.scrolled .topbar {
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            opacity: 0;
+        }
+
+        .navbar-brand {
+            color: var(--primary-green) !important;
+            font-weight: 700;
+            font-size: 26px;
+        }
+       
+       .nav-item:hover {
+          font-size: 20px;
+          color: var(--dark-green);
+          font-weight: bold;
+          transition: all 0.3s ease;
+        }
+        
+       .nav-item{
+         font-size: 17px;
+       }
+
+        .btn-donate {
+            background-color: var(--accent-green);
+            color: white;
+            border-radius: 4px;
+            padding: 8px 20px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-donate:hover {
+            background-color: var(--dark-green);
+            color: white;
+        }
+
+        .hero-slide {
+            height: 100vh;
+            min-height: 600px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .carousel-item {
+            transition: transform 1.2s ease-in-out, opacity 1.2s ease-in-out;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+        }
+
+         .h2-tujuan{
+           color: var(--dark-green);
+         }
+         
+         .p-tujuan{
+           text-align: justify;
+         }
+
+        .about-img {
+            width: 700px;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: fill;
+            border-radius: 15px;
+        }
+        
+        .tab-container {
+            background-color: #cbe3cb;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .tombol {
+            border: none;
+            width: 100px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .tombol:hover, .tombol.active {
+            background-color: #5aa45a !important;
+            color: white !important;
+        }
+        
+        .button:hover{
+          background-color: var(--dark-green) !important;
+          color: white !important;
+        }
+        
+        .foto{
+          height: 320px;
+          width: 320px;
+        }
+        
+        .card-container {
+          height: 280px;
+          cursor: pointer;
+        }
+      
+        .img-zoom {
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+      
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+        }
+      
+        .zoomed {
+          transform: scale(1.1);
+        }
+        
+        #eventCarousel .carousel-item {
+        transition: transform 1.2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    }
+
+    #eventCarousel .card-wrapper {
+        padding: 0 12px;
+        height: 100%;
+    }
+
+    .nav-arrow {
+        font-size: 1.2rem;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s;
+        border: none;
+    }
+    
+    .nav-arrow:hover {
+        background-color: #2d5a34 !important;
+    }
+
+    .carousel-control-prev-icon, 
+    .carousel-control-next-icon {
+        display: none;
+    }
+ .gallery-item {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        aspect-ratio: 1/1;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .gallery-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 2;
+    }
+
+    .static-text {
+        position: absolute;
+        bottom: 20px;
+        width: 100%;
+        text-align: center;
+        color: white;
+        z-index: 3;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+
+    .plus-icon {
+        font-size: 3rem;
+        color: white;
+    }
+
+    .fs-15 { 
+        font-size: 15px; 
+    }
+
+      .volunteer-card {
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 8px;
+    }
+    
+    .volunteer-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 40%, transparent 100%);
+        transition: 0.3s ease;
+    }
+    
+    .social-icons {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: 0.3s ease;
+    }
+    
+    .volunteer-card:hover .volunteer-overlay {
+        background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .volunteer-card:hover .social-icons {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+      .back-to-top {
+        position: fixed;
+        visibility: visible;
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+        background-color: #5cb85c;
+        color: white;
+        border-radius: 4px;
+        transition: all 0.4s;
+        z-index: 999;
+        text-decoration: none;
+        font-size: 24px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+      }
+      
+      .back-to-top:hover {
+        background-color: #4cae4c;
+        color: white;
+        transform: translateY(-5px);
+      }
+
+         
+        @media (max-width: 991px) {
+            #mainHeader { width: 100%; top: 0; border-radius: 0; }
+            .hero-slide { height: 80vh; }
+            .display-2 { font-size: 2.5rem; }
+        }
